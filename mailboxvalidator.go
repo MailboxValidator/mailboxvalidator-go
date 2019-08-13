@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-type ValidationResult struct {
+type validationResult struct {
 	EmailAddress          string `json:"email_address"`
 	Domain                string `json:"domain"`
 	IsFree                string `json:"is_free"`
@@ -31,7 +31,7 @@ type ValidationResult struct {
 	ErrorMessage          string `json:"error_message"`
 }
 
-type ValidationResultDisposable struct {
+type validationResultDisposable struct {
 	EmailAddress     string `json:"email_address"`
 	IsDisposable     string `json:"is_disposable"`
 	CreditsAvailable uint32 `json:"credits_available"`
@@ -39,7 +39,7 @@ type ValidationResultDisposable struct {
 	ErrorMessage     string `json:"error_message"`
 }
 
-type ValidationResultFree struct {
+type validationResultFree struct {
 	EmailAddress     string `json:"email_address"`
 	IsFree           string `json:"is_free"`
 	CreditsAvailable uint32 `json:"credits_available"`
@@ -49,18 +49,21 @@ type ValidationResultFree struct {
 
 var apiKey string
 
+// Gets the MailboxValidator API key if it has been set.
 func APIKey() string {
 	return apiKey
 }
 
+// Sets the MailboxValidator API key.
 func SetAPIKey(key string) {
 	apiKey = key
 }
 
-func ValidateEmail(email string) (*ValidationResult, error) {
+// Perform a full validation on the supplied email address to check if email address is valid.
+func ValidateEmail(email string) (*validationResult, error) {
 	url := "https://api.mailboxvalidator.com/v1/validation/single?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
-	result := &ValidationResult{}
+	result := &validationResult{}
 	err := getJson(url, result)
 
 	if err != nil {
@@ -72,10 +75,11 @@ func ValidateEmail(email string) (*ValidationResult, error) {
 	return result, nil
 }
 
-func DisposableEmail(email string) (*ValidationResultDisposable, error) {
+// Checks if the supplied email address is from a disposable email provider.
+func DisposableEmail(email string) (*validationResultDisposable, error) {
 	url := "https://api.mailboxvalidator.com/v1/email/disposable?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
-	result := &ValidationResultDisposable{}
+	result := &validationResultDisposable{}
 	err := getJson(url, result)
 
 	if err != nil {
@@ -87,10 +91,11 @@ func DisposableEmail(email string) (*ValidationResultDisposable, error) {
 	return result, nil
 }
 
-func FreeEmail(email string) (*ValidationResultFree, error) {
+// Checks if the supplied email address is from a free email provider.
+func FreeEmail(email string) (*validationResultFree, error) {
 	url := "https://api.mailboxvalidator.com/v1/email/free?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
-	result := &ValidationResultFree{}
+	result := &validationResultFree{}
 	err := getJson(url, result)
 
 	if err != nil {
@@ -114,7 +119,7 @@ func getJson(url string, target interface{}) error {
 }
 
 // for debugging purposes
-// func PrintResult(x *ValidationResult) {
+// func PrintResult(x *validationResult) {
 // fmt.Printf("EmailAddress: %s\n", x.EmailAddress)
 // fmt.Printf("Domain: %s\n", x.Domain)
 // fmt.Printf("IsFree: %s\n", x.IsFree)
