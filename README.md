@@ -17,7 +17,7 @@ Installation
 ============
 
 ```
-go get github.com/MailboxValidator/mailboxvalidator-go
+go get github.com/mailboxvalidator/mailboxvalidator-go
 ```
 
 
