@@ -1,3 +1,3 @@
-module github.com/mailboxvalidator/mailboxvalidator-go/v2
+module github.com/mailboxvalidator/mailboxvalidator-go/mailboxvalidator
 
 go 1.16
