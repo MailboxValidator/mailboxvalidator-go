@@ -9,31 +9,31 @@ import (
 )
 
 type validationResult struct {
-	EmailAddress          string `json:"email_address"`
-	Domain                string `json:"domain"`
-	IsFree                bool `json:"is_free"`
-	IsSyntax              bool `json:"is_syntax"`
-	IsDomain              bool `json:"is_domain"`
-	IsSMTP                bool `json:"is_smtp"`
-	IsVerified            bool `json:"is_verified"`
-	IsServerDown          bool `json:"is_server_down"`
-	IsGreylisted          bool `json:"is_greylisted"`
-	IsDisposable          bool `json:"is_disposable"`
-	IsSuppressed          bool `json:"is_suppressed"`
-	IsRole                bool `json:"is_role"`
-	IsHighRisk            bool `json:"is_high_risk"`
-	IsCatchAll            bool `json:"is_catchall"`
+	EmailAddress          string  `json:"email_address"`
+	Domain                string  `json:"domain"`
+	IsFree                bool    `json:"is_free"`
+	IsSyntax              bool    `json:"is_syntax"`
+	IsDomain              bool    `json:"is_domain"`
+	IsSMTP                bool    `json:"is_smtp"`
+	IsVerified            bool    `json:"is_verified"`
+	IsServerDown          bool    `json:"is_server_down"`
+	IsGreylisted          bool    `json:"is_greylisted"`
+	IsDisposable          bool    `json:"is_disposable"`
+	IsSuppressed          bool    `json:"is_suppressed"`
+	IsRole                bool    `json:"is_role"`
+	IsHighRisk            bool    `json:"is_high_risk"`
+	IsCatchAll            bool    `json:"is_catchall"`
 	MailboxValidatorScore float64 `json:"mailboxvalidator_score"`
 	TimeTaken             float64 `json:"time_taken"`
-	Status                bool `json:"status"`
-	CreditsAvailable      uint32 `json:"credits_available"`
-	ErrorCode             uint32 `json:"error_code"`
-	ErrorMessage          string `json:"error_message"`
+	Status                bool    `json:"status"`
+	CreditsAvailable      uint32  `json:"credits_available"`
+	ErrorCode             uint32  `json:"error_code"`
+	ErrorMessage          string  `json:"error_message"`
 }
 
 type validationResultDisposable struct {
 	EmailAddress     string `json:"email_address"`
-	IsDisposable     bool `json:"is_disposable"`
+	IsDisposable     bool   `json:"is_disposable"`
 	CreditsAvailable uint32 `json:"credits_available"`
 	ErrorCode        uint32 `json:"error_code"`
 	ErrorMessage     string `json:"error_message"`
@@ -41,7 +41,7 @@ type validationResultDisposable struct {
 
 type validationResultFree struct {
 	EmailAddress     string `json:"email_address"`
-	IsFree           bool `json:"is_free"`
+	IsFree           bool   `json:"is_free"`
 	CreditsAvailable uint32 `json:"credits_available"`
 	ErrorCode        uint32 `json:"error_code"`
 	ErrorMessage     string `json:"error_message"`
