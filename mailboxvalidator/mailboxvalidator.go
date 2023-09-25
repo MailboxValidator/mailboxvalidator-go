@@ -11,39 +11,39 @@ import (
 type validationResult struct {
 	EmailAddress          string `json:"email_address"`
 	Domain                string `json:"domain"`
-	IsFree                string `json:"is_free"`
-	IsSyntax              string `json:"is_syntax"`
-	IsDomain              string `json:"is_domain"`
-	IsSMTP                string `json:"is_smtp"`
-	IsVerified            string `json:"is_verified"`
-	IsServerDown          string `json:"is_server_down"`
-	IsGreylisted          string `json:"is_greylisted"`
-	IsDisposable          string `json:"is_disposable"`
-	IsSuppressed          string `json:"is_suppressed"`
-	IsRole                string `json:"is_role"`
-	IsHighRisk            string `json:"is_high_risk"`
-	IsCatchAll            string `json:"is_catchall"`
-	MailboxValidatorScore string `json:"mailboxvalidator_score"`
-	TimeTaken             string `json:"time_taken"`
-	Status                string `json:"status"`
+	IsFree                bool `json:"is_free"`
+	IsSyntax              bool `json:"is_syntax"`
+	IsDomain              bool `json:"is_domain"`
+	IsSMTP                bool `json:"is_smtp"`
+	IsVerified            bool `json:"is_verified"`
+	IsServerDown          bool `json:"is_server_down"`
+	IsGreylisted          bool `json:"is_greylisted"`
+	IsDisposable          bool `json:"is_disposable"`
+	IsSuppressed          bool `json:"is_suppressed"`
+	IsRole                bool `json:"is_role"`
+	IsHighRisk            bool `json:"is_high_risk"`
+	IsCatchAll            bool `json:"is_catchall"`
+	MailboxValidatorScore float64 `json:"mailboxvalidator_score"`
+	TimeTaken             float64 `json:"time_taken"`
+	Status                bool `json:"status"`
 	CreditsAvailable      uint32 `json:"credits_available"`
-	ErrorCode             string `json:"error_code"`
+	ErrorCode             uint32 `json:"error_code"`
 	ErrorMessage          string `json:"error_message"`
 }
 
 type validationResultDisposable struct {
 	EmailAddress     string `json:"email_address"`
-	IsDisposable     string `json:"is_disposable"`
+	IsDisposable     bool `json:"is_disposable"`
 	CreditsAvailable uint32 `json:"credits_available"`
-	ErrorCode        string `json:"error_code"`
+	ErrorCode        uint32 `json:"error_code"`
 	ErrorMessage     string `json:"error_message"`
 }
 
 type validationResultFree struct {
 	EmailAddress     string `json:"email_address"`
-	IsFree           string `json:"is_free"`
+	IsFree           bool `json:"is_free"`
 	CreditsAvailable uint32 `json:"credits_available"`
-	ErrorCode        string `json:"error_code"`
+	ErrorCode        uint32 `json:"error_code"`
 	ErrorMessage     string `json:"error_message"`
 }
 
@@ -61,7 +61,7 @@ func SetAPIKey(key string) {
 
 // Perform a full validation on the supplied email address to check if email address is valid.
 func ValidateEmail(email string) (*validationResult, error) {
-	url := "https://api.mailboxvalidator.com/v1/validation/single?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
+	url := "https://api.mailboxvalidator.com/v2/validation/single?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
 	result := &validationResult{}
 	err := getJson(url, result)
@@ -77,7 +77,7 @@ func ValidateEmail(email string) (*validationResult, error) {
 
 // Checks if the supplied email address is from a disposable email provider.
 func DisposableEmail(email string) (*validationResultDisposable, error) {
-	url := "https://api.mailboxvalidator.com/v1/email/disposable?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
+	url := "https://api.mailboxvalidator.com/v2/email/disposable?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
 	result := &validationResultDisposable{}
 	err := getJson(url, result)
@@ -93,7 +93,7 @@ func DisposableEmail(email string) (*validationResultDisposable, error) {
 
 // Checks if the supplied email address is from a free email provider.
 func FreeEmail(email string) (*validationResultFree, error) {
-	url := "https://api.mailboxvalidator.com/v1/email/free?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
+	url := "https://api.mailboxvalidator.com/v2/email/free?email=" + url.QueryEscape(email) + "&key=" + url.QueryEscape(apiKey)
 
 	result := &validationResultFree{}
 	err := getJson(url, result)

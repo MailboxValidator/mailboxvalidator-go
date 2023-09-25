@@ -45,21 +45,21 @@ Performs email validation on the supplied email address.
 |-----------|------------|
 | email_address | The input email address. |
 | domain | The domain of the email address. |
-| is_free | Whether the email address is from a free email provider like Gmail or Hotmail. Return values: True, False |
-| is_syntax | Whether the email address is syntactically correct. Return values: True, False |
-| is_domain | Whether the email address has a valid MX record in its DNS entries. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_smtp | Whether the mail servers specified in the MX records are responding to connections. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_verified | Whether the mail server confirms that the email address actually exist. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_server_down | Whether the mail server is currently down or unresponsive. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_greylisted | Whether the mail server employs greylisting where an email has to be sent a second time at a later time. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_disposable | Whether the email address is a temporary one from a disposable email provider. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_suppressed | Whether the email address is in our blacklist. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_role | Whether the email address is a role-based email address like admin@example.net or webmaster@example.net. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_high_risk | Whether the email address contains high risk keywords. Return values: True, False, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
-| is_catchall | Whether the email address is a catch-all address. Return values: True, False, Unknown, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_free | Whether the email address is from a free email provider like Gmail or Hotmail. Return values: true, false |
+| is_syntax | Whether the email address is syntactically correct. Return values: true, false |
+| is_domain | Whether the email address has a valid MX record in its DNS entries. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_smtp | Whether the mail servers specified in the MX records are responding to connections. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_verified | Whether the mail server confirms that the email address actually exist. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_server_down | Whether the mail server is currently down or unresponsive. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_greylisted | Whether the mail server employs greylisting where an email has to be sent a second time at a later time. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_disposable | Whether the email address is a temporary one from a disposable email provider. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_suppressed | Whether the email address is in our blacklist. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_role | Whether the email address is a role-based email address like admin@example.net or webmaster@example.net. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_high_risk | Whether the email address contains high risk keywords. Return values: true, false, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
+| is_catchall | Whether the email address is a catch-all address. Return values: true, false, Unknown, -&nbsp;&nbsp;&nbsp;(- means not applicable) |
 | mailboxvalidator_score | Email address reputation score. Score > 0.70 means good; score > 0.40 means fair; score <= 0.40 means poor. |
 | time_taken | The time taken to get the results in seconds. |
-| status | Whether our system think the email address is valid based on all the previous fields. Return values: True, False |
+| status | Whether our system think the email address is valid based on all the previous fields. Return values: true, false |
 | credits_available | The number of credits left to perform validations. |
 | error_code | The error code if there is any error. See error table in the below section. |
 | error_message | The error message if there is any error. See error table in the below section. |
@@ -73,7 +73,7 @@ Check if the supplied email address is from a disposable email provider.
 | Field Name | Description |
 |-----------|------------|
 | email_address | The input email address. |
-| is_disposable | Whether the email address is a temporary one from a disposable email provider. Return values: True, False |
+| is_disposable | Whether the email address is a temporary one from a disposable email provider. Return values: true, false |
 | credits_available | The number of credits left to perform validations. |
 | error_code | The error code if there is any error. See error table in the below section. |
 | error_message | The error message if there is any error. See error table in the below section. |
@@ -87,7 +87,7 @@ Check if the supplied email address is from a free email provider.
 | Field Name | Description |
 |-----------|------------|
 | email_address | The input email address. |
-| is_free | Whether the email address is from a free email provider like Gmail or Hotmail. Return values: True, False |
+| is_free | Whether the email address is from a free email provider like Gmail or Hotmail. Return values: true, false |
 | credits_available | The number of credits left to perform validations. |
 | error_code | The error code if there is any error. See error table in the below section. |
 | error_message | The error message if there is any error. See error table below. |
@@ -119,26 +119,26 @@ func main() {
 		panic(result.ErrorMessage)
 	}
 	
-	fmt.Printf("EmailAddress: %s\n", result.EmailAddress)
-	fmt.Printf("Domain: %s\n", result.Domain)
-	fmt.Printf("IsFree: %s\n", result.IsFree)
-	fmt.Printf("IsSyntax: %s\n", result.IsSyntax)
-	fmt.Printf("IsDomain: %s\n", result.IsDomain)
-	fmt.Printf("IsSMTP: %s\n", result.IsSMTP)
-	fmt.Printf("IsVerified: %s\n", result.IsVerified)
-	fmt.Printf("IsServerDown: %s\n", result.IsServerDown)
-	fmt.Printf("IsGreylisted: %s\n", result.IsGreylisted)
-	fmt.Printf("IsDisposable: %s\n", result.IsDisposable)
-	fmt.Printf("IsSuppressed: %s\n", result.IsSuppressed)
-	fmt.Printf("IsRole: %s\n", result.IsRole)
-	fmt.Printf("IsHighRisk: %s\n", result.IsHighRisk)
-	fmt.Printf("IsCatchAll: %s\n", result.IsCatchAll)
-	fmt.Printf("MailboxValidatorScore: %s\n", result.MailboxValidatorScore)
-	fmt.Printf("TimeTaken: %s\n", result.TimeTaken)
-	fmt.Printf("Status: %s\n", result.Status)
-	fmt.Printf("CreditsAvailable: %d\n", result.CreditsAvailable)
-	fmt.Printf("ErrorCode: %s\n", result.ErrorCode)
-	fmt.Printf("ErrorMessage: %s\n", result.ErrorMessage)
+	fmt.Printf("EmailAddress: %+v\n", result.EmailAddress)
+	fmt.Printf("Domain: %+v\n", result.Domain)
+	fmt.Printf("IsFree: %+v\n", result.IsFree)
+	fmt.Printf("IsSyntax: %+v\n", result.IsSyntax)
+	fmt.Printf("IsDomain: %+v\n", result.IsDomain)
+	fmt.Printf("IsSMTP: %+v\n", result.IsSMTP)
+	fmt.Printf("IsVerified: %+v\n", result.IsVerified)
+	fmt.Printf("IsServerDown: %+v\n", result.IsServerDown)
+	fmt.Printf("IsGreylisted: %+v\n", result.IsGreylisted)
+	fmt.Printf("IsDisposable: %+v\n", result.IsDisposable)
+	fmt.Printf("IsSuppressed: %+v\n", result.IsSuppressed)
+	fmt.Printf("IsRole: %+v\n", result.IsRole)
+	fmt.Printf("IsHighRisk: %+v\n", result.IsHighRisk)
+	fmt.Printf("IsCatchAll: %+v\n", result.IsCatchAll)
+	fmt.Printf("MailboxValidatorScore: %+v\n", result.MailboxValidatorScore)
+	fmt.Printf("TimeTaken: %+v\n", result.TimeTaken)
+	fmt.Printf("Status: %+v\n", result.Status)
+	fmt.Printf("CreditsAvailable: %+v\n", result.CreditsAvailable)
+	fmt.Printf("ErrorCode: %+v\n", result.ErrorCode)
+	fmt.Printf("ErrorMessage: %+v\n", result.ErrorMessage)
 }
 ```
 
@@ -165,11 +165,11 @@ func main() {
 		panic(result.ErrorMessage)
 	}
 	
-	fmt.Printf("EmailAddress: %s\n", result.EmailAddress)
-	fmt.Printf("IsDisposable: %s\n", result.IsDisposable)
-	fmt.Printf("CreditsAvailable: %d\n", result.CreditsAvailable)
-	fmt.Printf("ErrorCode: %s\n", result.ErrorCode)
-	fmt.Printf("ErrorMessage: %s\n", result.ErrorMessage)
+	fmt.Printf("EmailAddress: %+v\n", result2.EmailAddress)
+	fmt.Printf("IsDisposable: %+v\n", result2.IsDisposable)
+	fmt.Printf("CreditsAvailable: %+v\n", result2.CreditsAvailable)
+	fmt.Printf("ErrorCode: %+v\n", result2.ErrorCode)
+	fmt.Printf("ErrorMessage: %+v\n", result2.ErrorMessage)
 }
 ```
 
@@ -196,11 +196,11 @@ func main() {
 		panic(result.ErrorMessage)
 	}
 	
-	fmt.Printf("EmailAddress: %s\n", result.EmailAddress)
-	fmt.Printf("IsFree: %s\n", result.IsFree)
-	fmt.Printf("CreditsAvailable: %d\n", result.CreditsAvailable)
-	fmt.Printf("ErrorCode: %s\n", result.ErrorCode)
-	fmt.Printf("ErrorMessage: %s\n", result.ErrorMessage)
+	fmt.Printf("EmailAddress: %+v\n", result3.EmailAddress)
+	fmt.Printf("IsFree: %+v\n", result3.IsFree)
+	fmt.Printf("CreditsAvailable: %+v\n", result3.CreditsAvailable)
+	fmt.Printf("ErrorCode: %+v\n", result3.ErrorCode)
+	fmt.Printf("ErrorMessage: %+v\n", result3.ErrorMessage)
 }
 ```
 
@@ -210,14 +210,15 @@ Errors
 
 | error_code | error_message |
 | ---------- | ------------- |
-| 100 | Missing parameter. |
-| 101 | API key not found. |
-| 102 | API key disabled. |
-| 103 | API key expired. |
-| 104 | Insufficient credits. |
-| 105 | Unknown error. |
+| 10000 | Missing parameter. |
+| 10001 | API key not found. |
+| 10002 | API key disabled. |
+| 10003 | API key expired. |
+| 10004 | Insufficient credits. |
+| 10005 | Unknown error. |
+| 10006 | Invalid email syntax. |
 
 Copyright
 =========
 
-Copyright (C) 2019-2020 by MailboxValidator.com, support@mailboxvalidator.com
+Copyright (C) 2023 by MailboxValidator.com, support@mailboxvalidator.com
