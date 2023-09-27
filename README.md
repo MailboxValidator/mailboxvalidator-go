@@ -17,7 +17,7 @@ Installation
 ============
 
 ```
-go get github.com/mailboxvalidator/mailboxvalidator-go
+go get github.com/mailboxvalidator/mailboxvalidator-go/v2
 ```
 
 
@@ -103,7 +103,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/mailboxvalidator/mailboxvalidator-go"
+	"github.com/mailboxvalidator/mailboxvalidator-go/v2"
 )
 
 func main() {
@@ -149,7 +149,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/mailboxvalidator/mailboxvalidator-go"
+	"github.com/mailboxvalidator/mailboxvalidator-go/v2"
 )
 
 func main() {
@@ -180,7 +180,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/mailboxvalidator/mailboxvalidator-go"
+	"github.com/mailboxvalidator/mailboxvalidator-go/v2"
 )
 
 func main() {
