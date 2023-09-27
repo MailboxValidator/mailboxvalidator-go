@@ -165,11 +165,11 @@ func main() {
 		panic(result.ErrorMessage)
 	}
 	
-	fmt.Printf("EmailAddress: %+v\n", result2.EmailAddress)
-	fmt.Printf("IsDisposable: %+v\n", result2.IsDisposable)
-	fmt.Printf("CreditsAvailable: %+v\n", result2.CreditsAvailable)
-	fmt.Printf("ErrorCode: %+v\n", result2.ErrorCode)
-	fmt.Printf("ErrorMessage: %+v\n", result2.ErrorMessage)
+	fmt.Printf("EmailAddress: %+v\n", result.EmailAddress)
+	fmt.Printf("IsDisposable: %+v\n", result.IsDisposable)
+	fmt.Printf("CreditsAvailable: %+v\n", result.CreditsAvailable)
+	fmt.Printf("ErrorCode: %+v\n", result.ErrorCode)
+	fmt.Printf("ErrorMessage: %+v\n", result.ErrorMessage)
 }
 ```
 
@@ -196,11 +196,11 @@ func main() {
 		panic(result.ErrorMessage)
 	}
 	
-	fmt.Printf("EmailAddress: %+v\n", result3.EmailAddress)
-	fmt.Printf("IsFree: %+v\n", result3.IsFree)
-	fmt.Printf("CreditsAvailable: %+v\n", result3.CreditsAvailable)
-	fmt.Printf("ErrorCode: %+v\n", result3.ErrorCode)
-	fmt.Printf("ErrorMessage: %+v\n", result3.ErrorMessage)
+	fmt.Printf("EmailAddress: %+v\n", result.EmailAddress)
+	fmt.Printf("IsFree: %+v\n", result.IsFree)
+	fmt.Printf("CreditsAvailable: %+v\n", result.CreditsAvailable)
+	fmt.Printf("ErrorCode: %+v\n", result.ErrorCode)
+	fmt.Printf("ErrorMessage: %+v\n", result.ErrorMessage)
 }
 ```
 
