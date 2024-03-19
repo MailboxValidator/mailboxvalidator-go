@@ -10,6 +10,7 @@ import (
 
 type validationResult struct {
 	EmailAddress          string  `json:"email_address"`
+	BaseEmailAddress      string  `json:"base_email_address"`
 	Domain                string  `json:"domain"`
 	IsFree                bool    `json:"is_free"`
 	IsSyntax              bool    `json:"is_syntax"`
@@ -23,6 +24,9 @@ type validationResult struct {
 	IsRole                bool    `json:"is_role"`
 	IsHighRisk            bool    `json:"is_high_risk"`
 	IsCatchAll            bool    `json:"is_catchall"`
+	IsDMARCEnforced       bool    `json:"is_dmarc_enforced"`
+	IsStrictSPF           bool    `json:"is_strict_spf"`
+	WebsiteExist          bool    `json:"website_exist"`
 	MailboxValidatorScore float64 `json:"mailboxvalidator_score"`
 	TimeTaken             float64 `json:"time_taken"`
 	Status                bool    `json:"status"`
