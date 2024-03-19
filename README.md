@@ -13,7 +13,7 @@ This module can be useful in many types of projects, for example
  - and so on
 
 # Developer Documentation
-To learn more about installation, usage, and code examples, please visit the developer documentation at [hhttps://mailboxvalidator-go.readthedocs.io/en/latest/index.html.](https://mailboxvalidator-go.readthedocs.io/en/latest/index.html)
+To learn more about installation, usage, and code examples, please visit the developer documentation at [https://mailboxvalidator-go.readthedocs.io/en/latest/index.html.](https://mailboxvalidator-go.readthedocs.io/en/latest/index.html)
 
 Copyright
 =========
