@@ -1,5 +1,3 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/mailboxvalidator/mailboxvalidator-go/v2)](https://goreportcard.com/report/github.com/mailboxvalidator/mailboxvalidator-go/v2)
-
 MailboxValidator Go Package
 ===========================
 
